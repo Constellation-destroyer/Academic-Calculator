@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator & Marks Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Academic Calculator</h1>
+    </header>
+
+    <main>
+        <!-- Home Page with Cards -->
+        <div id="home-page" class="page active">
+            <div class="cards-container">
+                <div class="card" data-target="gpa-page">
+                    <div class="card-content">
+                        <h2>GPA Calculator</h2>
+                        <p>Calculate your GPA based on course credits and marks</p>
+                        <button class="go-btn">Go</button>
+                    </div>
+                </div>
+                <div class="card" data-target="marks-page">
+                    <div class="card-content">
+                        <h2>Marks Predictor</h2>
+                        <p>Find out what marks you need to achieve your desired grade</p>
+                        <button class="go-btn">Go</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GPA Calculator Page -->
+        <div id="gpa-page" class="page">
+            <div class="page-header">
+                <button class="back-btn">← Back</button>
+                <h2>GPA Calculator</h2>
+            </div>
+            <div class="calculator-container">
+                <div class="subject-inputs">
+                    <table id="gpa-table">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Credits</th>
+                                <th>Marks (out of 100)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gpa-subjects">
+                            <tr>
+                                <td>Subject 1</td>
+                                <td><input type="number" min="0" step="0.5" placeholder="0" class="credits"></td>
+                                <td><input type="number" min="0" max="100" placeholder="0" class="marks"></td>
+                                <td><button class="remove-btn">Remove</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button id="add-subject" class="add-btn">Add Subject</button>
+                </div>
+                <div class="calculator-actions">
+                    <button id="calculate-gpa" class="calculate-btn">Calculate GPA</button>
+                    <button id="reset-gpa" class="reset-btn">Reset</button>
+                </div>
+                <div class="result-container">
+                    <div id="gpa-result" class="result">
+                        <h3>Result</h3>
+                        <p>Total Credits: <span id="total-credits">0</span></p>
+                        <p>Total Points: <span id="total-points">0</span></p>
+                        <p class="final-result">GPA: <span id="final-gpa">0.00</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marks Predictor Page -->
+        <div id="marks-page" class="page">
+            <div class="page-header">
+                <button class="back-btn">← Back</button>
+                <h2>Marks Predictor</h2>
+            </div>
+            <div class="calculator-container">
+                <div class="predictor-inputs">
+                    <div class="input-group">
+                        <label for="current-marks">Current Marks (out of 40):</label>
+                        <input type="number" id="current-marks" min="0" max="40" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="desired-grade">Desired Grade:</label>
+                        <select id="desired-grade">
+                            <option value="A+">A+ (93-100%)</option>
+                            <option value="A">A (85-92%)</option>
+                            <option value="B+">B+ (77-84%)</option>
+                            <option value="B">B (69-76%)</option>
+                            <option value="C+">C+ (61-68%)</option>
+                            <option value="C">C (53-60%)</option>
+                            <option value="D">D (45-52%)</option>
+                            <option value="F">F (Below 45%)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="calculator-actions">
+                    <button id="predict-marks" class="calculate-btn">Predict Required Marks</button>
+                    <button id="reset-predictor" class="reset-btn">Reset</button>
+                </div>
+                <div class="result-container">
+                    <div id="predictor-result" class="result">
+                        <h3>Result</h3>
+                        <p>Current Marks (out of 40): <span id="result-current-marks">0</span></p>
+                        <p>Desired Grade: <span id="result-desired-grade">-</span></p>
+                        <p class="final-result">Marks Required (out of 60): <span id="required-marks">0</span></p>
+                        <p id="feasibility-message"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Academic Calculator | All Rights Reserved</p>
+    </footer>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
